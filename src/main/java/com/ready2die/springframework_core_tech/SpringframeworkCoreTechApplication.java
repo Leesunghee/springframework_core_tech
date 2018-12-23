@@ -9,10 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
 import java.util.Arrays;
 import java.util.function.Supplier;
@@ -23,6 +26,15 @@ public class SpringframeworkCoreTechApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringframeworkCoreTechApplication.class, args);
+    }
+
+    @Bean
+    public MessageSource messageSource() {
+        var messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("classpath:/messages");
+        messageSource.setDefaultEncoding("UTF-8");
+        messageSource.setCacheSeconds(3);
+        return messageSource;
     }
 
 }
