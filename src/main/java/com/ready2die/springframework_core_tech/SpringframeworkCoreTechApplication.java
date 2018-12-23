@@ -19,30 +19,8 @@ import java.util.function.Supplier;
 @SpringBootApplication
 public class SpringframeworkCoreTechApplication {
 
-    @Autowired
-    MyService myService;
-
     public static void main(String[] args) {
-
-//        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-////        ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
-//        String[] beanDefinitionNames = context.getBeanDefinitionNames();
-//        System.out.println(Arrays.toString(beanDefinitionNames));
-//        BookService bookService = (BookService) context.getBean("bookService");
-//        System.out.println(bookService.bookRepository != null);
-
-//        SpringApplication.run(SpringframeworkCoreTechApplication.class, args);
-
-
-
-        var app = new SpringApplication(SpringframeworkCoreTechApplication.class);
-        app.addInitializers((ApplicationContextInitializer<GenericApplicationContext>) ctx -> {
-            ctx.registerBean(MyService.class);
-            ctx.registerBean(ApplicationRunner.class, () -> args1 -> System.out.println("Functional Bean Definition!!"));
-        });
-
-        app.run(args);
-
+        SpringApplication.run(SpringframeworkCoreTechApplication.class, args);
     }
 
 }
