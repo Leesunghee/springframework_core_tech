@@ -1,11 +1,10 @@
 package com.ready2die.springframework_core_tech;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public class BookRepository {
+public interface BookRepository {
 
-    public Book save(Book book) {
-        return null;
-    }
+    Book save(Book book);
+
 }
