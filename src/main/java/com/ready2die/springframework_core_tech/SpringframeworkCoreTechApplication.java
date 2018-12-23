@@ -10,6 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
@@ -17,6 +18,7 @@ import java.util.Arrays;
 import java.util.function.Supplier;
 
 @SpringBootApplication
+@PropertySource("classpath:/app.properties")
 public class SpringframeworkCoreTechApplication {
 
     public static void main(String[] args) {
