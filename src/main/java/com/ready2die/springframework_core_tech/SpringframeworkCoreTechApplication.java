@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextInitializer;
@@ -27,16 +28,10 @@ import java.util.function.Supplier;
 public class SpringframeworkCoreTechApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringframeworkCoreTechApplication.class, args);
-    }
-
-    @Bean
-    public MessageSource messageSource() {
-        var messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename("classpath:/messages ");
-        messageSource.setDefaultEncoding("UTF-8");
-        messageSource.setCacheSeconds(3);
-        return messageSource;
+        SpringApplication app = new SpringApplication(SpringframeworkCoreTechApplication.class);
+        app.setWebApplicationType(WebApplicationType.NONE);
+        app.run(args);
+//        SpringApplication.run(SpringframeworkCoreTechApplication.class, args);
     }
 
 }
